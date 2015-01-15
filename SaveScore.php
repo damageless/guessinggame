@@ -1,5 +1,6 @@
 <?php
 	ini_set('display_errors', 1);
+	error_reporting(E_ALL);
 	$try = $_POST[‘turns’];
 	$mysqli = new mysqli(‘localhost’, ‘kraczekn_game’, ‘testing1234’, ‘kraczekn_game’);
 
