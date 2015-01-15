@@ -24,31 +24,30 @@
 
     var x = Math.floor(Math.random() * 10) + 1;
     var count = 0;
-    var hint = 'Guess My Number Between 1-10!';
 
-    while (count < 10) {
-      var guess = prompt(hint +
-        '\nYou Have Guessed ' + count + ' Times.');
-      if (!guess) break;
-      guess = Number(guess);
+
+    function checkGuess() {
+      count++;
+      guess = Number(document.getElementById('numberGuess').value);
       if (guess == x) {
-        document.write('<p>YOU WIN!</p>');
+        document.getElementById('hintText').innerHTML = "You won in " + count + " attempts!";
+
         sendScore();
         getHighScore();
-        break;
       } else {
-        hint = 'Nope.';
-
+        var hint = 'Nope';
         if (guess < x) hint += ' Too Small!';
         if (guess > x) hint += ' Too Big!';
-        count++;
+        document.getElementById('hintText').innerHTML = hint;
       }
     }
-    alert('The secret number was ' + x + '.');
     console.log(count);
   </script>
 
-  <span id="currentHighScore"></span>
+  <input type="text" name="guess" id="numberGuess" /><input type="button" value="Guess!" onclick="checkGuess();" />
+  <br />
+  <span id="hintText"></span><br />
+  Current High Score: <span id="currentHighScore"></span>
 
 </body>
 </html>
