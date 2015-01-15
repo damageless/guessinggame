@@ -31,9 +31,12 @@
       </div>
       <div id="form">
         Guess a number between 1-10<br>
-        <input type="text" name="guess" id="numberGuess"> <input type="button" value="Guess!" onclick="checkGuess();"><br>
+        <input type="text" name="guess" id="numberGuess">
+		<input id="guess_btn" type="button" value="Guess!" onclick="checkGuess();">
+		<input id="again_btn"type="button" value="Try Again" onclick="again();">
+		<br>
         <span id="hintText"></span><br>
-        Current High Score: <span id="currentHighScore"></span>
+        Current High Scores: <span id="currentHighScore"></span>
       </div>
     </div>
   </body>
