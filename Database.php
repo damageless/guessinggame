@@ -1,30 +1,19 @@
 <?php
-class Database
-{
-	private $try = $_GET[‘try’];
-	private $mysqli = new mysqli(‘localhost’, ‘kraczekn_game’, ‘testing1234’, ‘kraczekn_game’);
+	ini_set('display_errors', 1);
+	error_reporting(E_ALL);
+	
+$servername = "localhost";
+$username = "kraczekn_game";
+$password = "testing1234";
 
-	public function storeTries()
-	{
-		if (mysqli_connect_errno()) {
-	    		printf("Connect failed: %s\n", mysqli_connect_error());
-	    		exit();
-		}
-		$sql = ‘INSERT INTO Table (Try) VALUES (?)’;
-		$stmt->bind_param(“sss”, $try);
-		$stmt = $mysqli->prepare($sql);
+// Create connection
+$db = new mysqli($servername, $username, $password);
 
-		$stmt->execute();
+// Check connection
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
+} 
+echo "Connected successfully";
 
-		$stmt->close();
-	}
-	public function getHighScore()
-	{		
-		$query = “SELECT MIN(Try) FROM Table”;
-		if(!$result = $mysqli->query($query))
-		{
-			die(“db error fool!”);
-		}
-		return $result
-	}
-}
+
+?>
