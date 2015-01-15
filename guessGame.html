@@ -10,7 +10,7 @@
     function sendScore() {
       $.ajax({
         type: "POST",
-        url: 'send_score.php',
+        url: 'SaveScore.php',
         data: { turns: count },
         success: function(data) { console.log(data) }
       });
