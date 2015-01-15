@@ -31,6 +31,7 @@ function checkGuess() {
 		if (guess < x) hint += ' Small!';
 		if (guess > x) hint += ' Big!';
 		document.getElementById('hintText').innerHTML = hint;
+		document.getElementById('numberGuess').value = "";
 	}
 }
 

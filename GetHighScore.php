@@ -1,10 +1,10 @@
 <?php
-	require 'Database.php';
-	
-	$query = "SELECT MIN(Try) FROM Table";
-	if(!$result = $db->query($query))
-	{
-		die("db error fool!");
-	}
-	return $result
-	?>
+ echo "well i got here";
+require 'Database.php';
+$sql = "SELECT MIN('Try') FROM Table";
+echo $sql;
+$result = $db->query($sql);
+echo var_dump($result);
+
+
+ ?>
