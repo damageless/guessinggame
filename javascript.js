@@ -21,11 +21,10 @@ function checkGuess() {
 	guess = Number(document.getElementById('numberGuess').value);
 	if (guess == x) {
 		document.getElementById('hintText').innerHTML = "You won in " + count + " attempts!";
-
 		sendScore();
 		getHighScore();
-		$('#guess_btn').hide();
-		$('#again_btn').show();
+		x = Math.floor(Math.random() * 10) + 1;
+		count = 0;
 	} else {
 		var hint = 'Nope ' + guess +' is Too';
 		if (guess < x) hint += ' Small!';
@@ -35,9 +34,7 @@ function checkGuess() {
 	}
 }
 
-function again(){
-	location.reload();
-}
+
 
 $( document ).ready(function(){
 getHighScore();
